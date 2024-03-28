@@ -5,7 +5,7 @@ const Follow = require("../models/Follow");
 const createBlog = async (req, res) => {
   const isValid = Joi.object({
     title: Joi.string().required(),
-    textBody: Joi.string().min(30).max(1000).required(),
+    textBody: Joi.string().min(30).max(100000).required(),
   }).validate(req.body);
 
   if (isValid.error) {
